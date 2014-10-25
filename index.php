@@ -3,8 +3,6 @@ session_start();
 require("inc/config.php");
 require("facebook.php");
 require("inc/functions.php");
-// require(ROOT_PATH . "facebook.php");
-// require(ROOT_PATH . "inc/functions.php");
 ?>
 
 <?php 
@@ -41,6 +39,7 @@ header("Location:http://www.ratestuf.org/?".$_SERVER['QUERY_STRING']);
   <link rel="shortcut icon" href="http://www.ratestuf.org/favicon.ico" />
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Lilita+One|Passion+One:700,400,900|Chivo:400,900,900italic' rel='stylesheet' type='text/css'>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
@@ -145,9 +144,7 @@ else {
   <body>
     <div class="container-fluid">
           <header class="row">
-            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-              <img id="logo1" class="logo pull-left" src="images/logo.jpg" alt="RateStuf logo">
-            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
             <div class="col-lg-7 col-md-7 hidden-sm hidden-xs"></div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
               <?php if(!$user){ ?>
@@ -198,8 +195,13 @@ else {
             <div class="col-lg-4 col-md-2 hidden-sm hidden-xs"></div>
             <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
 
+              <div id="logo3-container" class="logo" alt="RateStuf logo">
+                <p id="logo3">Ratestuf<span id="dotOrg">.org</span></p>
+                <p id="logo3trademark" >&trade;</p>
+                <p id="logo3tagline">rate BRANDS and find the best stuf<span style="margin-left:1px;margin-top:0px" id="logo3-falling-f">f.</span></p>
+              </div>
 
-              <img id="logo2" class="logo" src="images/logo.jpg" alt="RateStuf logo">
+<!--               <img id="logo2" class="logo" src="images/logo.jpg" alt="RateStuf logo"> -->
 
                 <form id="mainForm" method="get" action="./" >
                   <div class="right-inner-addon">
@@ -224,19 +226,19 @@ else {
 
                 <?php
 
-                if (isset($_GET['s'])) {
-                if (is_a_subcategory($_GET['s'])) {
-                  echo 'Top 10 '.ucwords(strtolower(stripslashes($_GET['s']))).':';
-                } else {
-                if (position_of_vs_term_in_the_search($_GET['s']) > 0 ) {  
-                echo 'User Ratings for '. substr_replace(ucwords(strtolower(stripslashes($_GET['s']))),'v',position_of_vs_term_in_the_search($_GET['s'])+1,1).':';
-                } else {
-                echo 'User Ratings for '.ucwords(strtolower(stripslashes($_GET['s']))).':';
-                }
-                  }
-                }  else {
-                echo "Welcome to Ratestuf".'&trade;'; 
-                }
+                // if (isset($_GET['s'])) {
+                // if (is_a_subcategory($_GET['s'])) {
+                //   echo 'Top 10 '.ucwords(strtolower(stripslashes($_GET['s']))).':';
+                // } else {
+                // if (position_of_vs_term_in_the_search($_GET['s']) > 0 ) {  
+                // echo 'User Ratings for '. substr_replace(ucwords(strtolower(stripslashes($_GET['s']))),'v',position_of_vs_term_in_the_search($_GET['s'])+1,1).':';
+                // } else {
+                // echo 'User Ratings for '.ucwords(strtolower(stripslashes($_GET['s']))).':';
+                // }
+                //   }
+                // }  else {
+                // echo "Welcome to Ratestuf".'&trade;'; 
+                // }
 
                 ?>
 
@@ -343,6 +345,7 @@ What about (A) 2 item vs search (B) multiple items -->
 
                 <img id="rateTable" src="images/rateTable.png">
 
+                <span id="starCounter">0.0</span>
                 <div class="starRating"> 
                     <span id="star1" class="star fa fa fa-star"></span>
                     <span id="star2" class="star fa fa fa-star"></span>
@@ -530,7 +533,7 @@ What about (A) 2 item vs search (B) multiple items -->
 <p class='paragraphs'> RateStuf&trade; is an <strong>online review website</strong>.  Our users work together to create a dynamic, real-time brand map to help other consumers discover the best-value brands and make better purchase decisions. </p>
 <h3 class='paragraphs'> What is a Brand Map? </h3>
 <p class='paragraphs'> A brand map displays the competing brands in a given class that are all competing for your business.  </p>
-<p class='paragraphs'> Our brand map represents the collective, user-generated <strong>reviews</strong> of any brand which our users care to add to our website.  We collect <strong>user reviews</strong> of our users’ perceived quality and perceived price of each brand.  Based on our proprietary algorithm,  we aggregate the data to display the collective opinion of our users. </p>  
+<p class='paragraphs'> Our brand map represents the collective, user-generated <strong>reviews</strong> of any brand which our users care to add to our website.  We collect <strong>user reviews</strong> of our users’ perceived quality and perceived price of each brand.  Based on our proprietary algorithm,  we aggregate the data to display the collective opinion of our users. These ratings reflect customers' overall consumer experience with these businesses, not their response to any particular product.</p>  
 <p class='paragraphs'> Our brand map is dynamic so it changes over time as users rate the changing quality and price of any brand relative to its current competitors.  Since markets are constantly shifting, brands on our map will shift to reflect the changing perceptions of our users. </p>
 <h3 class='paragraphs'> Why Can’t I Move the Balls Representing the Brands? </h3>
 <p class='paragraphs'> If you can’t move the balls, you’re probably not logged in.  Our site operates like a wiki – once you log in, you can add new items and add your <strong> ratings</strong> to any item in our database by moving the ball representing each brand. Use your mouse or your finger to move the brands on your desktop, your iPhone or Android device – our site is responsive! </p>
@@ -795,7 +798,7 @@ What about (A) 2 item vs search (B) multiple items -->
 
       <footer class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-               <p id="footer"> Ratestuf.org &copy; <?php echo DATE('Y'); ?> <br> An Adam Zuckerberg Production </br><a href="#"></a>  42 Alan Watts Way, Topanga CA #69 <br/><div id="footerLinks" class="hidden-sm hidden-xs"> <a href="http://areas.kenan-flagler.unc.edu/Marketing/FacultyStaff/zeithaml/Selected%20Publications/Consumer%20Perceptions%20of%20Price,%20Quality,%20and%20Value-%20A%20Means-End%20Model%20and%20Snthesis%20of%20Evidence.pdf">Scholary Stuf on Perceived Value and Price</a>  | <a href="http://www.comm.ucsb.edu/faculty/flanagin/CV/FlanaginandMetzger2013(CiHB).pdf">Scholary Stuf on User-Generated Ratings</a> | <a href="http://www.demandforce.com/_assets/downloads/pdf/resources/heres-looking-out-for-you-kid-the-unselfish-reasons-why-people-write-online-reviews.pdf">The Unselfish Reasons Why People Write Online Reviews</a></p><div>
+               <p id="footer"> Ratestuf.org &copy; <?php echo DATE('Y'); ?> <br> An Adam Zuckerberg Production </br><a href="#"></a>  42 Alan Watts Way, Topanga CA #69 <br/><a href="http://www.ratestuf.org/privacy.php">Privacy Policy</a><br/><div id="footerLinks" class="hidden-sm hidden-xs"> <a href="http://areas.kenan-flagler.unc.edu/Marketing/FacultyStaff/zeithaml/Selected%20Publications/Consumer%20Perceptions%20of%20Price,%20Quality,%20and%20Value-%20A%20Means-End%20Model%20and%20Snthesis%20of%20Evidence.pdf">Scholary Stuf on Perceived Value and Price</a>  | <a href="http://www.comm.ucsb.edu/faculty/flanagin/CV/FlanaginandMetzger2013(CiHB).pdf">Scholary Stuf on User-Generated Ratings</a> | <a href="http://www.demandforce.com/_assets/downloads/pdf/resources/heres-looking-out-for-you-kid-the-unselfish-reasons-why-people-write-online-reviews.pdf">The Unselfish Reasons Why People Write Online Reviews</a></p><div>
           </div>
       </footer>
 <!-- close container -->

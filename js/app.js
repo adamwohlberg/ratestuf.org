@@ -4,10 +4,15 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
+// $(document).ready(function() {
 // $("#rateTableFrame").css('border', '2px solid blue');
-// $('.draggable').parent().css('border', '5px solid red');
-});
+// // $('.draggable').parent().css('border', '5px solid red');
+// });
+
+// $(document).ready(function() {
+// $("#containmentWrapper").css('border', '2px solid red');
+// // $('.draggable').parent().css('border', '5px solid red');
+// });
 
 $(document).mouseover(function() {
   // verticallyAlignDollarIcons();
@@ -15,6 +20,17 @@ $(document).mouseover(function() {
   // setTimeout("",20000);
 });
 
+
+$("#logo3-container").hover(function(){
+    $("#logo3-falling-f").css("position", "absolute" );
+    $("#logo3-falling-f").css("z-index", "-9999" );
+    $("#logo3-falling-f").css("font-size", "1em" );
+    $("#logo3-falling-f").css("margin", "25px 0px 0px 4px" );
+    $("#logo3-falling-f").css("-webkit-transform", "rotate(55deg)" );
+    $("#logo3-falling-f").css("-moz-transform", "rotate(55deg)" );
+    $("#logo3-falling-f").css("-ms-transform", "rotate(55deg)" );
+    $("#logo3-falling-f").css("-o-transform", "rotate(55deg)" );
+});
 // trying flexbox instead of this
 // function verticallyAlignDollarIcons() {
 // var dollarSpacing = ($('.dollarRating').height());
@@ -190,6 +206,17 @@ $(".draggable").click(function(){
     $(this).toggleClass("active");
   }
 });
+
+$(".draggable").mousemove(function(){
+  var counter = ((((($(this).position().left)/($('#containmentWrapper').width()-30)*100)/20)+0.4).toFixed(1));
+    if (counter == 0.4) {
+      counter = (0.0).toFixed(1); 
+    } else if (counter > 5) {
+       counter = (5.0).toFixed(1);     
+    }
+    $("#starCounter").html(counter);
+});
+
 
 $(".draggable").mousemove(function(){
 
