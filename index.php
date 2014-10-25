@@ -36,7 +36,7 @@ header("Location:http://www.ratestuf.org/?".$_SERVER['QUERY_STRING']);
 <!--   <title>Ratestuf | <?php echo $_SERVER['QUERY_STRING'] . " - Reviews of The Top 10 Brands and A vs. B Ratings"; ?></title> -->
   <meta name="description" content="A dynamic user-generated brand map to help you discover the best brands in every category. Real-time user-generated ratings of the top 10 brands in any class: the best hosting services, best airlines, best rental cars, best online ride sharing services...you name it. Add your ratings of price and service quality to help others find the best-value brands or, add a new brand to our database to help others discover new, innovative products and services in any category.">
 <!--   <link rel="shortcut icon" href="http://www.ratestuf.org/favicon.ico?v=2" /> -->
-  <link rel="shortcut icon" href="http://www.ratestuf.org/favicon.ico" />
+  <link rel="shortcut icon" href="http://www.ratestuf.org/favicon.ico/?v=2" />
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Lilita+One|Passion+One:700,400,900|Chivo:400,900,900italic' rel='stylesheet' type='text/css'>
@@ -206,7 +206,7 @@ else {
                 <form id="mainForm" method="get" action="./" >
                   <div class="right-inner-addon">
 
-                    <input type="text" id="searchTags" class="items form-control" placeholder="find, add or compare stuff" name="s" value="">
+                    <input type="text" id="searchTags" class="items form-control" placeholder="e.g. southwest vs. delta" name="s" value="">
                         <i class="glyphicon glyphicon-search"></i>
                 </div>
                 </form>
@@ -582,7 +582,7 @@ What about (A) 2 item vs search (B) multiple items -->
               echo "not able to get trending data";
             }
           ?>
-          <div class="trending">  Trending Top 10 Searches </div>
+<!--           <div class="trending">  Trending Top 10 Searches </div> -->
                 <ul>
                 <?php
                 while ($row = mysqli_fetch_assoc($trending)) {

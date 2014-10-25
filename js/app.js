@@ -25,7 +25,7 @@ $("#logo3-container").hover(function(){
     $("#logo3-falling-f").css("position", "absolute" );
     $("#logo3-falling-f").css("z-index", "-9999" );
     $("#logo3-falling-f").css("font-size", "1em" );
-    $("#logo3-falling-f").css("margin", "25px 0px 0px 4px" );
+    $("#logo3-falling-f").css("margin", "10px 0px 0px 4px" );
     $("#logo3-falling-f").css("-webkit-transform", "rotate(55deg)" );
     $("#logo3-falling-f").css("-moz-transform", "rotate(55deg)" );
     $("#logo3-falling-f").css("-ms-transform", "rotate(55deg)" );
@@ -206,6 +206,23 @@ $(".draggable").click(function(){
     $(this).toggleClass("active");
   }
 });
+
+$(".draggable").hover(function(){
+  if (!userloggedin) {
+        $("#loginFacebook").fadeIn(50).css('border', '10px solid #1cff2c');
+        $("#loginFacebook").css('borderRadius','10px');
+        $("#loginFacebook").css('margin-top','22px');
+  }
+});
+
+$(".draggable").mouseout(function(){
+  if (!userloggedin) {
+        $("#loginFacebook").fadeIn(50).css('border', 'none');
+  }
+});
+
+
+
 
 $(".draggable").mousemove(function(){
   var counter = ((((($(this).position().left)/($('#containmentWrapper').width()-30)*100)/20)+0.4).toFixed(1));

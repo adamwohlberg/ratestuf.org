@@ -768,6 +768,7 @@ h3.trending {
 	font-size: 1.6em;
 	line-height: .7em;
 	margin: 0px 0px 0px -30px;
+	display: none;
 }
 .trendingVS {
 	font-family: "Arial Bold", sans-serif; 
