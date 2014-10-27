@@ -211,13 +211,14 @@ $(".draggable").hover(function(){
   if (!userloggedin) {
         $("#loginFacebook").fadeIn(50).css('border', '10px solid #1cff2c');
         $("#loginFacebook").css('borderRadius','10px');
-        $("#loginFacebook").css('margin-top','22px');
+        $("#loginFacebook").css('margin-top','12px');
   }
 });
 
 $(".draggable").mouseout(function(){
   if (!userloggedin) {
         $("#loginFacebook").fadeIn(50).css('border', 'none');
+        $("#loginFacebook").css('margin-top','22px');
   }
 });
 
