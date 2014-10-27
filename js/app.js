@@ -221,11 +221,19 @@ $(".draggable").mouseout(function(){
   }
 });
 
+$("#searchTags").focus(function(){
+  if (!userloggedin) {
+        $("#loginFacebook").fadeIn(50).css('border', '10px solid #1cff2c');
+        $("#loginFacebook").css('borderRadius','10px');
+        $("#loginFacebook").css('margin-top','22px');
+  }
+});
+
 
 
 
 $(".draggable").mousemove(function(){
-  var counter = ((((($(this).position().left)/($('#containmentWrapper').width()-30)*100)/20)+0.4).toFixed(1));
+  var counter = ((((($(this).position().left)/($('#containmentWrapper').width()-($(this).width()/2))*100)/20)+0.4).toFixed(1));
     if (counter == 0.4) {
       counter = (0.0).toFixed(1); 
     } else if (counter > 5) {
@@ -240,19 +248,19 @@ $(".draggable").mousemove(function(){
 //STARS
     $(".star").removeClass('starhover');
 
-    if ($(this).position().left > (($("#star1").position().left)+30)) {
+    if ($(this).position().left > (($("#star1").position().left)-($(this).width()/2))/0.8) {
       $("#star1").addClass('starhover');
     } 
-    if ($(this).position().left > (($("#star2").position().left)+30)) {
+    if ($(this).position().left > (($("#star2").position().left)-($(this).width()/2))/0.8) {
       $("#star2").addClass('starhover');
     }
-    if ($(this).position().left > (($("#star3").position().left)+30)) {
+    if ($(this).position().left > (($("#star3").position().left)-($(this).width()/2))/0.8) {
       $("#star3").addClass('starhover');
     }
-        if ($(this).position().left > (($("#star4").position().left)+30)) {
+        if ($(this).position().left > (($("#star4").position().left)-($(this).width()/2))/0.8) {
       $("#star4").addClass('starhover');
     }
-        if ($(this).position().left > (($("#star5").position().left)+-20)) {
+        if ($(this).position().left > (($("#star5").position().left)-($(this).width()/2))/0.8) {
       $("#star5").addClass('starhover');
     }
 //DOLLARS
@@ -313,33 +321,33 @@ $( ".draggable" ).parent().css( "background-color", "20px red" );
 
 
                        //make green arrow appear
-                  $(function() {
+  //                 $(function() {
 
-                      if (!$("#rateNowButton").hasClass('disabled')) {
-    return;
-  }  
-                      $(".draggable").click(function() {
-                          $("#arrowUp").fadeIn(2000);
-                      });
-                      $(".draggable").hover(function() {
-                          $("#arrowUp").fadeIn(2000);
-                      });
+  //                     if (!$("#rateNowButton").hasClass('disabled')) {
+  //   return;
+  // }  
+  //                     $(".draggable").click(function() {
+  //                         $("#arrowUp").fadeIn(2000);
+  //                     });
+  //                     $(".draggable").hover(function() {
+  //                         $("#arrowUp").fadeIn(2000);
+  //                     });
 
 
 
-                      $("#rateNowButton").click(function() {
-                          $("#arrowUp").fadeIn(2000);
-                      });
-                      $("#rateNowButton").click(function() {
-                          $("#arrowUp").fadeOut(600);
-                      });
-                      $("loginFacebook").click(function() {
-                          $("#arrowUp").fadeOut(100);
-                      });
-                      $("#rateNowButton").hover(function() {
-                          $("#arrowUp").fadeOut(200);
-                      });
-                    });
+  //                     $("#rateNowButton").click(function() {
+  //                         $("#arrowUp").fadeIn(2000);
+  //                     });
+  //                     $("#rateNowButton").click(function() {
+  //                         $("#arrowUp").fadeOut(600);
+  //                     });
+  //                     $("loginFacebook").click(function() {
+  //                         $("#arrowUp").fadeOut(100);
+  //                     });
+  //                     $("#rateNowButton").hover(function() {
+  //                         $("#arrowUp").fadeOut(200);
+  //                     });
+  //                   });
 
              // draggable within a box and others
             $(function() {
@@ -379,6 +387,9 @@ $("#rateNowButton").click(function(){
     return;
   }
 
+// disable the button to prevent multiple clicks
+ $("#rateNowButton").addClass('disabled');
+
   $('.draggable').each(function() {
 
   itemName = $(this).attr('name');
@@ -389,6 +400,7 @@ $("#rateNowButton").click(function(){
   positionFromTop = ($(this).position().top);
   xRating = (Math.round((positionFromLeft / containerWidth) * 100 )/ 100);
   yRating = (Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100);
+  textRating = $('.dialogTextArea').html();
 
   // testing code
   // alert('container height: '+ ($(this).parent().height() * 0.78 ));
@@ -398,17 +410,19 @@ $("#rateNowButton").click(function(){
   // alert('xRating'+ xRating);
   // alert('yRating' + yRating);
 
-  data.items.push({"name": itemName, "itemId": itemId, "xRating":xRating, "yRating":yRating, "textRating":""});
+  data.items.push({"name": itemName, "itemId": itemId, "xRating":xRating, "yRating":yRating, "textRating":textRating});
 
 });
+
+// disable the button to prevent multiple clicks
+ $("#rateNowButton").removeClass('disabled');
  
  $.ajax({ 
 
+  data: JSON.stringify(data),
   type: "POST",
   url: "ajax/saveratings.php",
-  data: JSON.stringify(data),
   contentType: "application/json",
-
   success: function(res) {
     console.log(res);
     if (res.hasOwnProperty('alreadyRated')) {
@@ -421,8 +435,8 @@ $("#rateNowButton").click(function(){
   },
   error: function(res) {
     // console.log(res);
-  }
-  ,dataType:'json'});
+  },
+  dataType:'json'});
 
 });
 

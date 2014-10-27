@@ -36,7 +36,7 @@ header("Location:http://www.ratestuf.org/?".$_SERVER['QUERY_STRING']);
 <!--   <title>Ratestuf | <?php echo $_SERVER['QUERY_STRING'] . " - Reviews of The Top 10 Brands and A vs. B Ratings"; ?></title> -->
   <meta name="description" content="A dynamic user-generated brand map to help you discover the best brands in every category. Real-time user-generated ratings of the top 10 brands in any class: the best hosting services, best airlines, best rental cars, best online ride sharing services...you name it. Add your ratings of price and service quality to help others find the best-value brands or, add a new brand to our database to help others discover new, innovative products and services in any category.">
 <!--   <link rel="shortcut icon" href="http://www.ratestuf.org/favicon.ico?v=2" /> -->
-  <link rel="shortcut icon" href="http://www.ratestuf.org/favicon.ico/?v=2" />
+  <link rel="shortcut icon" href="http://www.ratestuf.org/favicon.ico">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Lilita+One|Passion+One:700,400,900|Chivo:400,900,900italic' rel='stylesheet' type='text/css'>
@@ -200,7 +200,7 @@ else {
                 <p id="logo3trademark" >&trade;</p>
                 <p id="logo3tagline">rate BRANDS and find the best stuf<span style="margin-left:1px;margin-top:0px" id="logo3-falling-f">f.</span></p>
               </div>
-
+<div id="wantToRateAnything"><p>Want to <a href="http://www.ratestuf.com">rate ANYTHING</a>? Go to Ratestuf.com instead.</p></div>
 <!--               <img id="logo2" class="logo" src="images/logo.jpg" alt="RateStuf logo"> -->
 
                 <form id="mainForm" method="get" action="./" >
@@ -414,9 +414,6 @@ What about (A) 2 item vs search (B) multiple items -->
 </div>
 
 
-
-
-
             </div>
          </div>           
      </div>
@@ -549,7 +546,7 @@ What about (A) 2 item vs search (B) multiple items -->
 <p class='paragraphs'> But every year, I would visit Poquito Menos and the prices would go up while the burritos got smaller and smaller.  In other words, it was just OK and was becoming a worse and worse value over time.  I think they call this ‘value engineering’. I figured that as the company grew, they hired some MBA who advised them to squeeze every dollar out of the company and increase the owner’s profits by making tiny little cuts to the quality and amount of ingredients.  None of these incremental changes were noticeable by themselves, but in aggregate, over time, the burritos started to just be OK, where once they were awesome – ‘death by a thousand cuts.’  </p>
  <p class='paragraphs'> I hate this phenomenon of companies decreasing value of a product over time while riding their brand and I wanted to make a tool for consumers to rate the price and quality of products to help people discover new, innovative brands that are offering a better quality service at the same price and by keeping the legacy companies offering a great value by providing a user-generated feedback loop for companies to easily measure <strong> brand perception in the market.</strong> </p>
 <p class='paragraphs'> The founder of TripAdvisor&trade;  noticed a similar phenomenon in the travel world and it’s why he started his travel review website: </p>
-<blockquote>But the hotel owner that wants to run this crappy place, preying off the brand that they’re under, and maybe their location as being near to something, that person has to kind of shape up, maybe take something out of their profits and put it back into providing a good service for customers, because word is spreading and TripAdvisor™ is the conduit in the travel space for spreading that word (Kaufer, source: Founders at Work: Stories of Startups’ Early Days)</blockquote>
+<blockquote>But the hotel owner that wants to run this crappy place, preying off the brand that they’re under, and maybe their location as being near to something, that person has to kind of shape up, maybe take something out of their profits and put it back into providing a good service for customers, because word is spreading...(Kaufer, source: Founders at Work: Stories of Startups’ Early Days)</blockquote>
 <p class='paragraphs'> With Ratestuf&trade;  around, I would hope Poquito Menos would see that users rated its quality lower while its price got higher each year on our brand map, thus moving it to the red ‘worse value’ zone from its original position as a best-in-class brand while other restaurants emerged that were offering a better value. </p>
 <p class='paragraphs'> RateStuf&trade;  is around to help consumers discover the best brands in each class and save us the money and trouble of dealing with any brands except those that are offering a truly great value.  I personally hate spending any money on a business in order to discover that it is offering a poor value. Why? In the information age, let’s just let each other know about the best products and services and choose more wisely.  The best companies will listen to our opinions and offer great values – they call this being market-centric – and the others should fade away to be replaced by great new innovative businesses that truly offer great value to us all. </p>
 <p class='paragraphs'>  - Adam Zuckerberg, 2014</p>
@@ -603,7 +600,7 @@ What about (A) 2 item vs search (B) multiple items -->
                     <li class="trendingVS"><a href="http://ratestuf.org/?s=discover+home+loans+vs.+quicken+loans">discover home loans vs. quicken loans<a></li></br>
                     <li class="trendingVS"><a href="http://ratestuf.org/?s=geico+vs.+state+farm">geico vs. state farm<a></li></br>
                     <li class="trendingVS"><a href="http://ratestuf.org/?s=southwest+vs.+delta">southwest vs. delta<a></li></br>
-                    <li class="trendingVS"><a href="http://ratestuf.org/?s=betty+ford+vs+hazelden">betty ford vs. hazelden<a></li></br>          
+                    <li class="trendingVS"><a href="http://ratestuf.org/?s=betty+ford+vs+hazelden">betty ford vs. hazelden</a></li></br>          
                 </ul>
 
                   <?php

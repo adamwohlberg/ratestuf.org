@@ -1,7 +1,10 @@
 <?php
 session_start();
-require (__dir__."/../../inc/config.php");
-require(__dir__. "/../../facebook.php");
+require("../inc/config.php");
+require("../facebook.php");
+// require (__dir__."/../../inc/config.php");
+// require(__dir__. "/../../facebook.php");
+
 header('Content-Type:application/json');
 $json=file_get_contents('php://input');
 $json=json_decode($json,true);
@@ -10,7 +13,12 @@ $facebook = new Facebook(array('appId'=>'228744763916305','secret'=>'013c80431eb
 $user=$facebook->getUser();
 
 
-if ($user) {
+if (!$user && $_SESSION['limit_inserts'] >= 5) {
+ exit();
+}
+
+// WORKAROUND FOR WIDGETS SO THAT THERE IS ALWAYS A USER
+// if ($user) {
 $result = array(); 
 foreach ( $json['items'] as $ratingObject ) {
 
@@ -26,18 +34,17 @@ foreach ( $json['items'] as $ratingObject ) {
 // error_log(mysqli_error($connection));
   if (sizeof($result)==0) {
   		$result['alreadyRated']=true;
-  }
+  			}
 
 	}  else {
 //otherwise add the first rating for this item
 	$query = "INSERT INTO `ratings_table` (`userId`, `itemId`, `xRating`, `yRating`, `textRating`) "; 
     $query .= "VALUES('$user', '".$ratingObject['itemId']."', '".$ratingObject['xRating']."', '".$ratingObject['yRating']."','".(isset($ratingObject['textRating']) ? $ratingObject['textRating'] : "")."' );";
 	mysqli_query($connection,$query);
-// error_log(mysqli_error($connection));	
+// error_log(mysqli_error($connection));
+error_log(mysqli_error($connection));
+$_SESSION['limit_inserts'] += 1;	
 		}
 
 	}	
 	echo json_encode($result);
-}
-
-?>
