@@ -1,6 +1,7 @@
 $(document).ready(function() {
   // verticallyAlignDollarIcons();
   // horizontallyAlignStars();
+  $("#starCounter").show();
 });
 
 
@@ -249,19 +250,19 @@ $(".draggable").mousemove(function(){
 //STARS
     $(".star").removeClass('starhover');
 
-    if ($(this).position().left > (($("#star1").position().left)-($(this).width()/2))/0.8) {
+    if ($(this).position().left > (($("#star1").position().left)+50)) {
       $("#star1").addClass('starhover');
     } 
-    if ($(this).position().left > (($("#star2").position().left)-($(this).width()/2))/0.8) {
+    if ($(this).position().left > (($("#star2").position().left)+50)) {
       $("#star2").addClass('starhover');
     }
-    if ($(this).position().left > (($("#star3").position().left)-($(this).width()/2))/0.8) {
+    if ($(this).position().left > (($("#star3").position().left)+50)) {
       $("#star3").addClass('starhover');
     }
-        if ($(this).position().left > (($("#star4").position().left)-($(this).width()/2))/0.8) {
+        if ($(this).position().left > (($("#star4").position().left)+50)) {
       $("#star4").addClass('starhover');
     }
-        if ($(this).position().left > (($("#star5").position().left)-($(this).width()/2))/0.8) {
+        if ($(this).position().left > (($("#star5").position().left)+50)) {
       $("#star5").addClass('starhover');
     }
 //DOLLARS

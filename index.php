@@ -401,7 +401,7 @@ What about (A) 2 item vs search (B) multiple items -->
 <!-- end screen capture -->
 </div>
 
-                  <img id="arrowUp" src="images/arrowUp.png" class="img-responsive">
+<!--                   <img id="arrowUp" src="images/arrowUp.png" class="img-responsive"> -->
                   <button id="rateNowButton" class="<?php if (!$user) {echo 'disabled '; } ?>" title="Sign up or log in to add your ratings. You will rate all visible balls, so remove any balls you don't want to rate prior to clicking this button.  To delete a ball, click to select the ball (it will be highlighted in yellow) and press the DELETE key to remove the ball.">Rate Now!</button>
               <div id="WhiteSpaceFill"></div>
               </div>

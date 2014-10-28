@@ -106,7 +106,7 @@ function get_draggable_balls($search_term) {
 
         } else {
 
-          echo '<script> verticallyAlignDollarIcons(); alert("One or more of your search terms is new to our database. Please log in to continue.")</script>';
+          echo '<script> alert("One or more of your search terms is new to Ratestuf. Please log in to create this new item.")</script>';
         }
       }     
     } 
