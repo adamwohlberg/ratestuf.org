@@ -7,22 +7,19 @@
 // 1. Create a database connection
 
 // This is the code for localhost development
-  define("DB_SERVER","localhost");
-  define("DB_USER","root");
-  define("DB_PASS","root");
-  define("DB_NAME","ratestuf");
+  // define("DB_SERVER","localhost");
+  // define("DB_USER","root");
+  // define("DB_PASS","root");
+  // define("DB_NAME","ratestuf");
 
 //This is the code for live website
-  // define("DB_SERVER","localhost");
-  // define("DB_USER","ecstati5_azucker");
-  // define("DB_PASS","ontology");
-  // define("DB_NAME","ecstati5_ratestf");
-  // define("DB_PORT","3306"); // default: 3306, Randy uses 8889
 
-// Account password 
-// hQDJu5wDB2!
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-// home directory access ecstati5
+  define("DB_SERVER", $url["host"]);
+  define("DB_USER", $url["user"]);
+  define("DB_PASS", $url["pass"]);
+  define("DB_NAME",substr($url["path"], 1);
   
 
   // update a password: 
