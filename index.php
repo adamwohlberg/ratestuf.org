@@ -200,7 +200,7 @@ else {
                 <p id="logo3trademark" >&trade;</p>
                 <p id="logo3tagline">rate BRANDS and find the best stuf<span style="margin-left:1px;margin-top:0px" id="logo3-falling-f">f.</span></p>
               </div>
-<div id="wantToRateAnything"><p>Want to <a href="http://www.ratestuf.com">rate ANYTHING</a>? Go to Ratestuf.com instead.</p></div>
+<!-- <div id="wantToRateAnything"><p>Want to <a href="http://www.ratestuf.com">rate ANYTHING</a>? Go to Ratestuf.com instead.</p></div> -->
 <!--               <img id="logo2" class="logo" src="images/logo.jpg" alt="RateStuf logo"> -->
 
                 <form id="mainForm" method="get" action="./" >
