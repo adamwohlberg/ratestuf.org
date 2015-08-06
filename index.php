@@ -198,6 +198,7 @@ else {
               <div id="logo3-container" class="logo" alt="RateStuf logo">
                 <p id="logo3">Ratestuf<span id="dotOrg">.org</span></p>
                 <p id="logo3trademark" >&trade;</p>
+                <p><?php  echo $user   ?></p>
                 <p id="logo3tagline">rate BRANDS and find the best stuf<span style="margin-left:1px;margin-top:0px" id="logo3-falling-f">f.</span></p>
               </div>
 <!-- <div id="wantToRateAnything"><p>Want to <a href="http://www.ratestuf.com">rate ANYTHING</a>? Go to Ratestuf.com instead.</p></div> -->
